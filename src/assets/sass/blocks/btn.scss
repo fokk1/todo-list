@@ -1,0 +1,17 @@
+.btn {
+	@include button-reset;
+	@include text;
+	line-height: 1.47rem;
+	cursor: pointer;
+	background-color: $white;
+	padding: 0.93rem 3.73rem;
+	box-shadow: $shadow;
+	border-radius: $radius;
+
+	transition: color .2s linear, background-color .2s linear;
+
+	&:hover {
+		background-color: $black;
+		color: $white;
+	}
+}

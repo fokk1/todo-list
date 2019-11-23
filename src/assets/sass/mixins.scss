@@ -1,0 +1,16 @@
+@mixin button-reset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	background: none;
+	color: inherit;
+	font: inherit;
+}
+
+@mixin text {
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 1.2rem;
+}

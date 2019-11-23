@@ -1,0 +1,36 @@
+.to-do {
+	padding-top: 4rem;
+	height: 100%;
+}
+
+.to-do__inner {
+	position: relative;
+}
+
+.to-do__add {
+	width: 25px;
+	height: 25px;
+
+	@include button-reset;
+	cursor: pointer;
+
+	position: absolute;
+	top: 50%;
+	right: 2.8rem;
+	z-index: 1;
+	transform: translateY(-50%);
+
+	&:hover {
+		.to-do__icon {
+			fill: #777;
+		}
+	}
+}
+
+.to-do__icon {
+	width: 25px;
+	height: 25px;
+
+	fill: $gray;
+	transition: fill .2s linear;
+}
