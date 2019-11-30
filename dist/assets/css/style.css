@@ -157,11 +157,19 @@ h1, h2, h3, h4, h5, h6 {
     display: -webkit-box;
     display: flex;
     cursor: pointer;
-    margin-bottom: 1.2rem;
+    margin-bottom: .5rem;
+    border-radius: 10px;
+    padding: .7rem;
+    -webkit-transition: background-color .2s linear;
+    transition: background-color .2s linear;
 }
 
 .list__item:last-child {
     margin-bottom: 0;
+}
+
+.list__item:hover {
+    background-color: #f35151;
 }
 
 .list__item:hover .list__circle {
@@ -171,6 +179,10 @@ h1, h2, h3, h4, h5, h6 {
 .list__item:hover .list__text:after {
     width: 100%;
     right: 0;
+}
+
+.list__item.active {
+    background-color: #f35151;
 }
 
 .list__circle {

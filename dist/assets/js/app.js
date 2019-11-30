@@ -1,22 +1,20 @@
 'use strict';
 
 const input = document.getElementById('input');
-const add = document.getElementById('add');
-const clear = document.getElementById('clear');
+const addBtn = document.getElementById('add');
+const clearBtn = document.getElementById('clear');
 const list = document.getElementById('list');
 
-add.addEventListener('click', createElement);
+addBtn.addEventListener('click', createElement);
 
 function createElement() {
 	let value = input.value;
-	
 	if (value === '') {
 		return;
 	}
-
-	input.value = '';
+	input.value = ''; //To clear input field
 	
-	let item = document.createElement('li');
+	const item = document.createElement('li');
 	item.className = 'list__item';
 	list.append(item);
 
@@ -24,7 +22,7 @@ function createElement() {
 	circle.className = 'list__circle';
 	item.append(circle);
 
-	let text = document.createElement('div');
+	const text = document.createElement('div');
 	text.className = 'list__text';
 	text.innerHTML = value;
 	item.append(text);
@@ -32,6 +30,7 @@ function createElement() {
 	deleteElement(item);
 };
 
+//adding an element by pressing Enter
 input.addEventListener("keypress", (keyPressed) => {
 	const keyEnter = 13;
 	if (keyPressed.keyCode == keyEnter) {
@@ -39,6 +38,7 @@ input.addEventListener("keypress", (keyPressed) => {
 	}
 });
 
+//deleting an element
 function deleteElement(element) {
 	element.addEventListener('click', (event) => {
 		event.preventDefault();
@@ -46,7 +46,8 @@ function deleteElement(element) {
 	})
 };
 
-clear.addEventListener("click", () => {
+//deleting elements by button "Clear all"
+clearBtn.addEventListener("click", () => {
 	list.innerHTML = "";
 	localStorage.removeItem('list', list.innerHTML);
 })
