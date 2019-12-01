@@ -12,7 +12,7 @@ function createElement() {
 	if (value === '') {
 		return;
 	}
-	input.value = ''; //To clear input field
+	input.value = ''; //learing the input field
 	
 	const item = document.createElement('li');
 	item.className = 'list__item';
@@ -27,7 +27,15 @@ function createElement() {
 	text.innerHTML = value;
 	item.append(text);
 
-	deleteElement(item);
+	getSaved();
+	deleteElement();
+};
+
+function deleteElement () {
+	const listItems = document.querySelectorAll('.list__item');
+	for (let element of listItems) {
+		element.addEventListener('click', () => element.remove());
+	}
 };
 
 //adding an element by pressing Enter
@@ -38,16 +46,23 @@ input.addEventListener("keypress", (keyPressed) => {
 	}
 });
 
-//deleting an element
-function deleteElement(element) {
-	element.addEventListener('click', (event) => {
-		event.preventDefault();
-		element.remove();
-	})
-};
-
 //deleting elements by button "Clear all"
 clearBtn.addEventListener("click", () => {
-	list.innerHTML = "";
-	localStorage.removeItem('list', list.innerHTML);
+	localStorage.removeItem('list', list.innerHTML = '');
 })
+
+// saving an item in local storage
+
+function getSaved () {
+	localStorage.setItem('list', list.innerHTML);
+}
+
+// getting data after page reloading
+function loadTodos() {
+	const data = localStorage.getItem('list');
+	list.innerHTML = data;
+	deleteElement();
+};
+
+//function call
+loadTodos();
